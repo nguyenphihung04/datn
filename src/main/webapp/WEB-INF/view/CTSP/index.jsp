@@ -1,44 +1,38 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Danh sách chi tiết sản phẩm</title>
+    <title>Danh Sách Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="<c:url value='/css/style.css'/>">
 </head>
 <body>
-<h1>Danh sách chi tiết sản phẩm</h1>
-<table border="1">
+<h1>Danh Sách Chi Tiết Sản Phẩm</h1>
+<a href="<c:url value='/hnh-shop/ct-sanpham/create'/>">Thêm Mới</a>
+<table>
+    <thead>
     <tr>
         <th>ID</th>
+        <th>Sản Phẩm</th>
         <th>Giá</th>
-        <th>Số lượng tồn</th>
-        <th>Ngày sửa</th>
-        <th>Ngày tạo</th>
-        <th>Trạng thái</th>
-        <th>Hành động</th>
+        <th>Ngày Tạo</th>
+        <th>Hành Động</th>
     </tr>
-    <c:if test="${!empty data}">
-        <c:forEach var="chiTietSanPham" items="${data}">
-            <tr>
-                <td>${chiTietSanPham.id}</td>
-                <td>${chiTietSanPham.gia}</td>
-                <td>${chiTietSanPham.soLuongTon}</td>
-                <td>${chiTietSanPham.ngaySua}</td>
-                <td>${chiTietSanPham.ngayTao}</td>
-                <td>${chiTietSanPham.trangThai}</td>
-                <td>
-                    <a href="${pageContext.request.contextPath}/hnh-shop/ct-san-pham/edit/${chiTietSanPham.id}">Sửa</a>
-                    <a href="${pageContext.request.contextPath}/hnh-shop/ct-san-pham/delete/${chiTietSanPham.id}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');">Xóa</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </c:if>
-    <c:if test="${empty data}">
+    </thead>
+    <tbody>
+    <c:forEach var="item" items="${listChiTietSanPham}">
         <tr>
-            <td colspan="7">Không có chi tiết sản phẩm nào!</td>
+            <td>${item.id}</td>
+            <td>${item.sanPham.ten}</td>
+            <td>${item.gia}</td>
+            <td>${item.ngaytao}</td>
+            <td>
+                <a href="<c:url value='/hnh-shop/ct-sanpham/edit/${item.id}'/>">Sửa</a>
+                <a href="<c:url value='/hnh-shop/ct-sanpham/delete/${item.id}'/>">Xóa</a>
+            </td>
         </tr>
-    </c:if>
+    </c:forEach>
+    </tbody>
 </table>
-<a href="${pageContext.request.contextPath}/hnh-shop/ct-san-pham/create">Thêm chi tiết sản phẩm</a>
 </body>
 </html>

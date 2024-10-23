@@ -36,6 +36,6 @@ public class GioHang {
     @Column(name="trangthai")
     private Integer trangThai;
 
-    @Column(name="ten")
-    private String ten;
+    @Column(name="soluong")
+    private Integer soLuong;
 }

@@ -1,25 +1,30 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<form:form action="${pageContext.request.contextPath}/hnh-shop/ct-san-pham/edit/${data.id}" method="post" modelAttribute="data">
-    <label>Giá:</label>
-    <form:input path="gia" value="${data.gia}" required="true" type="number" step="none"/>
-    <form:errors path="gia" cssClass="error"/>
-    <br/>
-    <label>Số lượng tồn:</label>
-    <form:input path="soLuongTon" value="${data.soLuongTon}" required="true" type="number"/>
-    <form:errors path="soLuongTon" cssClass="error"/>
-    <br/>
-    <label>Ngày sửa:</label>
-    <form:input path="ngaySua" value="${data.ngaySua}" required="true" type="date"/>
-    <form:errors path="ngaySua" cssClass="error"/>
-    <br/>
-    <label>Ngày tạo:</label>
-    <form:input path="ngayTao" value="${data.ngayTao}" required="true" type="date"/>
-    <form:errors path="ngayTao" cssClass="error"/>
-    <br/>
-    <label>Trạng thái:</label>
-    <form:input path="trangThai" value="${data.trangThai}" required="true" type="number"/>
-    <form:errors path="trangThai" cssClass="error"/>
-    <br/>
-    <input type="submit" value="Cập nhật"/>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sửa Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="<c:url value='/css/style.css'/>">
+</head>
+<body>
+<h1>Sửa Chi Tiết Sản Phẩm</h1>
+<form:form modelAttribute="data" action="<c:url value='/hnh-shop/ct-sanpham/edit/${data.id}'/>" method="post">
+    <label for="sanPham">Sản Phẩm:</label>
+    <form:select path="sanPham.id" id="sanPham">
+        <c:forEach var="sp" items="${sanPhamList}">
+            <option value="${sp.id}" <c:if test="${sp.id == data.sanPham.id}">selected</c:if>>${sp.ten}</option>
+        </c:forEach>
+    </form:select><br/>
+
+    <label for="gia">Giá:</label>
+    <form:input path="gia" id="gia" /><br/>
+
+    <label for="ngaytao">Ngày Tạo:</label>
+    <form:input path="ngaytao" id="ngaytao" type="date" /><br/>
+
+    <input type="submit" value="Cập Nhật" />
+    <a href="<c:url value='/hnh-shop/ct-sanpham/hien-thi'/>">Hủy</a>
 </form:form>
+</body>
+</html>
