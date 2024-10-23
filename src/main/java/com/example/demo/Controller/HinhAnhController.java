@@ -21,13 +21,14 @@ public class HinhAnhController {
     @GetMapping("/hinh-anh/hien-thi")
     public String hienThiSanPham(Model model) {
         model.addAttribute("data", spRepo.findAll());
-        return "hinh_anh/index";  // Trả về view "index.jsp" hiển thị danh sách sản phẩm
+        return "hinhanh/index";  // Trả về view "index.jsp" hiển thị danh sách sản phẩm
     }
+
     // Hiển thị form thêm sản phẩm
     @GetMapping("/hinh-anh/create")
     public String createForm(Model model) {
         model.addAttribute("data", new HinhAnh()); // Tạo một đối tượng trống cho form
-        return "hinh_anh/add"; // Trả về view "add.jsp"
+        return "hinhanh/add"; // Trả về view "add.jsp"
     }
 
     // Xử lý khi người dùng submit form thêm sản phẩm
@@ -43,9 +44,11 @@ public class HinhAnhController {
         HinhAnh sanPham = spRepo.findById(id).orElse(null);
         if (sanPham != null) {
             model.addAttribute("data", sanPham);
+            return "hinhanh/edit"; // Trả về view chỉnh sửa hình ảnh
         }
         return "redirect:/hnh-shop/hinh-anh/hien-thi"; // Nếu không tìm thấy sản phẩm, quay lại danh sách
     }
+
     // Xử lý chỉnh sửa sản phẩm
     @PostMapping("/hinh-anh/edit/{id}")
     public String edit(@PathVariable Integer id, @ModelAttribute HinhAnh sanPham) {
@@ -53,6 +56,7 @@ public class HinhAnhController {
         spRepo.save(sanPham);
         return "redirect:/hnh-shop/hinh-anh/hien-thi"; // Quay lại danh sách sản phẩm
     }
+
     // Xóa sản phẩm
     @GetMapping("/hinh-anh/delete/{id}")
     public String delete(@PathVariable Integer id) {
