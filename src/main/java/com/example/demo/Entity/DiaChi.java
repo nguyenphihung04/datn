@@ -48,7 +48,7 @@ public class DiaChi {
     private String diaChi;
 
     @ManyToOne
-    @JoinColumn(name = "nguoi_dung_id")
+    @JoinColumn(name = "idnguoidung")
     private NguoiDung nguoiDung;
 
 
