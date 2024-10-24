@@ -16,6 +16,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -32,7 +33,7 @@ public class ChiTietSanPham {
     private Integer id;
 
     @Column(name = "gia")
-    private float gia; // Giá của sản phẩm
+    private BigDecimal gia; // Giá của sản phẩm
 
     @Column(name = "soluongton")
     private int soLuongTon; // Số lượng tồn

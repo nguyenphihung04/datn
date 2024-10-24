@@ -25,7 +25,9 @@
             <td>${item.id}</td>
             <td>${item.sanPham.ten}</td>
             <td>${item.gia}</td>
+            <td>${item.ngaySua}</td>
             <td>${item.ngaytao}</td>
+            <td>${item.trangThai}</td>
             <td>
                 <a href="<c:url value='/hnh-shop/ct-sanpham/edit/${item.id}'/>">Sửa</a>
                 <a href="<c:url value='/hnh-shop/ct-sanpham/delete/${item.id}'/>">Xóa</a>

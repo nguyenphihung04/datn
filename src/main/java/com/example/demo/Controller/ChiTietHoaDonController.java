@@ -33,7 +33,7 @@ public class ChiTietHoaDonController {
         model.addAttribute("ListCTSP", chiTietSanPhamRepo.findAll());
         model.addAttribute("ListCTHD", chiTietHoaDonRepo.findAll());
 
-        return "CTHD/hien";
+        return "CTHD/hienThi";
     }
 
     @PostMapping("chi-tiet-hd/add")

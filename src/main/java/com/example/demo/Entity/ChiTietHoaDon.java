@@ -13,6 +13,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "HoaDonChiTiet")
 @Getter
@@ -26,7 +28,7 @@ public class ChiTietHoaDon {
     private Integer id;
 
     @Column(name = "dongia")
-    private float donGia;
+    private BigDecimal donGia;
 
     @Column(name = "soluong")
     private int soLuong;

@@ -13,6 +13,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -28,7 +29,7 @@ public class HoaDon {
     private Integer id;
 
     @Column(name = "tongtien")
-    private float tongTien;
+    private BigDecimal tongTien;
 
     @Column(name = "tennguoinhan")
     private String tenNguoiNhan;
@@ -46,7 +47,7 @@ public class HoaDon {
     private int trangThai;
 
     @Column(name = "tienship")
-    private float tienShip;
+    private BigDecimal tienShip;
 
     @Column(name = "ngayship")
     private Date ngayShip;
@@ -55,7 +56,7 @@ public class HoaDon {
     private Date ngayThanhToan;
 
     @Column(name = "tongtiensaugiam")
-    private Date tongTienSauGiam;
+    private BigDecimal tongTienSauGiam;
 
     @Column(name = "hinhthucthanhtoan")
     private String hinhThucThanhToan;
