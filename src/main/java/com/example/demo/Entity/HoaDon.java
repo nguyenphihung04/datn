@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -35,12 +36,15 @@ public class HoaDon {
     private String tenNguoiNhan;
 
     @Column(name = "ngaynhan")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date ngayNhan;
 
     @Column(name = "ngaytao")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date ngayTao;
 
     @Column(name = "ngaysua")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date ngaySua;
 
     @Column(name = "trangthai")
@@ -50,9 +54,11 @@ public class HoaDon {
     private BigDecimal tienShip;
 
     @Column(name = "ngayship")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date ngayShip;
 
     @Column(name = "ngaythanhtoan")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date ngayThanhToan;
 
     @Column(name = "tongtiensaugiam")

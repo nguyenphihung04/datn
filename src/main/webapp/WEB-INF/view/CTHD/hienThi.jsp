@@ -59,6 +59,15 @@
                     <td>${cthd.donGia}</td>
                     <td>${cthd.soLuong}</td>
                     <td>${cthd.trangThai}</td>
+                    <td>
+                        <a>
+                            <button>Sửa</button>
+                        </a>
+                         <a>
+                            <button>Xoá</button>
+                        </a>
+
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>

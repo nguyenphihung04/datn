@@ -49,10 +49,10 @@ public class HoaDonController {
 
     @GetMapping("hoa-don/viewUpdate/{id}")
     public String viewUpdate(@PathVariable Integer id, Model model){
-        model.addAttribute("hoaDon", hoaDonRepo.findById(id).get());
+        model.addAttribute("hd", hoaDonRepo.findById(id).get());
         model.addAttribute("ListVoucher", voucherRepo.findAll());
         model.addAttribute("ListNguoiDung", nguoiDungRepo.findAll());
-        return "hoaDon/update";
+        return "hoaDon/edit";
     }
 
     @PostMapping("hoa-don/update/{id}")
