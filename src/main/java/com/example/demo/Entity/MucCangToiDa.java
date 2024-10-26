@@ -1,5 +1,6 @@
 package com.example.demo.Entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,12 +8,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.math.BigDecimal;
 
 
 @Entity
 @Table(name = "MucCangToiDa")
-@Data // Tạo tự động getter, setter, toString, equals, và hashCode
+@Getter
+@Setter
 @NoArgsConstructor // Tạo constructor không tham số
 @AllArgsConstructor // Tạo constructor có tham số
 public class MucCangToiDa {
@@ -20,9 +26,12 @@ public class MucCangToiDa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Double khoiLuong;
+    @Column(name = "khoiluong")
+    private BigDecimal khoiLuong;
 
+    @Column(name = "mota")
     private String moTa;
 
-    private Integer trangThai;
+    @Column(name = "trangthai")
+    private int trangThai;
 }

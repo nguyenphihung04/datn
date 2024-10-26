@@ -19,11 +19,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Entity
 @AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
 @Table(name = "SanPhamChiTiet")
 public class ChiTietSanPham {
 
@@ -50,39 +50,39 @@ public class ChiTietSanPham {
     private int trangThai; // Trạng thái sản phẩm
 
     @ManyToOne
-    @JoinColumn(name = "idSanPham")
+    @JoinColumn(name = "idSanPham", referencedColumnName = "id")
     private SanPham sanPham;
 
     @ManyToOne
-    @JoinColumn(name = "idDiemCanBang")
+    @JoinColumn(name = "idDiemCanBang", referencedColumnName = "id")
     private DiemCanBang diemCanBang;
 
     @ManyToOne
-    @JoinColumn(name = "idVatLieuTruc")
+    @JoinColumn(name = "idVatLieuTruc", referencedColumnName = "id")
     private VatLieuTruc vatLieuTruc;
 
     @ManyToOne
-    @JoinColumn(name = "idVatLieuKhung")
+    @JoinColumn(name = "idVatLieuKhung", referencedColumnName = "id")
     private VatLieuKhung vatLieuKhung;
 
     @ManyToOne
-    @JoinColumn(name = "idDoCungThan")
+    @JoinColumn(name = "idDoCungThan", referencedColumnName = "id")
     private DoCungThan doCungThan;
 
     @ManyToOne
-    @JoinColumn(name = "idChieuDaiTongThe")
+    @JoinColumn(name = "idChieuDaiTongThe", referencedColumnName = "id")
     private ChieuDaiTongThe chieuDaiTongThe;
 
     @ManyToOne
-    @JoinColumn(name = "idMucCangToiDa")
+    @JoinColumn(name = "idMucCangToiDa", referencedColumnName = "id")
     private MucCangToiDa mucCangToiDa;
 
     @ManyToOne
-    @JoinColumn(name = "idChuViCanVot")
+    @JoinColumn(name = "idChuViCanVot", referencedColumnName = "id")
     private ChuViCanVot chuViCanVot;
 
     @ManyToOne
-    @JoinColumn(name = "idMauSac")
+    @JoinColumn(name = "idMauSac", referencedColumnName = "id")
     private MauSac mauSac;
 
 }
