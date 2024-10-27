@@ -39,128 +39,125 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Main content -->
-<%--        <div class="col-md-10">--%>
-<%--            <div class="content">--%>
-<%--                <h4>Thêm mới chi tiết sản phẩm</h4>--%>
-<%--                <form action="" method="post">--%>
-<%--                    <div class="row mb-3">--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="idNguoiDung">Người Dùng</label>--%>
-<%--                            <select name="idNguoiDung" id="idNguoiDung" class="form-control">--%>
-<%--                                <c:forEach items="${ListNguoiDung}" var="itemND">--%>
-<%--                                    <option value="${itemND.id}">${itemND.ten}</option>--%>
-<%--                                </c:forEach>--%>
-<%--                            </select>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="tenNguoiNhan">Tên Người Nhận</label>--%>
-<%--                            <input type="text" name="tenNguoiNhan" id="tenNguoiNhan" class="form-control" placeholder="Nhập tên người nhận">--%>
-<%--                        </div>--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="ngayNhan">Ngày Nhận</label>--%>
-<%--                            <input type="date" name="ngayNhan" id="ngayNhan" class="form-control">--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
+        <div class="col-md-10">
+            <div class="content">
+                <h4>Thêm mới chi tiết sản phẩm</h4>
+                <form action="/hnh-shop/ct-sanpham/create" method="post">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="idSanPham">Sản Phẩm</label>
+                            <select name="idSanPham" id="idSanPham" class="form-control">
+                                <c:forEach items="${sanPhamList}" var="itemSP">
+                                    <option value="${itemSP.id}">${itemSP.ten}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="idDiemCanBang">Điểm Cân Bằng</label>
+                            <select name="idDiemCanBang" id="idDiemCanBang" class="form-control">
+                                <c:forEach items="${diemCanBangList}" var="itemDCB">
+                                    <option value="${itemDCB.id}">${itemDCB.ten}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="idVatLieuTruc">Vật Liệu Trục</label>
+                            <select name="idVatLieuTruc" id="idVatLieuTruc" class="form-control">
+                                <c:forEach items="${vatLieuTrucList}" var="itemVLT">
+                                    <option value="${itemVLT.id}">${itemVLT.ten}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
 
-<%--                    <div class="row mb-3">--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="ngayTao">Ngày Tạo Hoá Đơn</label>--%>
-<%--                            <input type="date" id="ngayTao" name="ngayTao" class="form-control">--%>
-<%--                        </div>--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="ngaySua">Ngày Sửa Hoá Đơn</label>--%>
-<%--                            <input type="date" id="ngaySua" name="ngaySua" class="form-control">--%>
-<%--                        </div>--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="tienShip">Tiền Ship</label>--%>
-<%--                            <input type="text" id="tienShip" name="tienShip" class="form-control" placeholder="Nhập tiền ship">--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="idVatLieuKhung">Vật Liệu Khung</label>
+                            <select name="idVatLieuKhung" id="idVatLieuKhung" class="form-control">
+                                <c:forEach items="${vatLieuKhungList}" var="itemVLK">
+                                    <option value="${itemVLK.id}">${itemVLK.ten}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="idDoCungThan">Độ Cứng Thân</label>
+                            <select name="idDoCungThan" id="idDoCungThan" class="form-control">
+                                <c:forEach items="${doCungThanList}" var="itemDCT">
+                                    <option value="${itemDCT.id}">${itemDCT.ten}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="idChieuDaiTongThe">Chiều Dài Tổng Thể</label>
+                            <select name="idChieuDaiTongThe" id="idChieuDaiTongThe" class="form-control">
+                                <c:forEach items="${chieuDaiTongTheList}" var="itemCDTT">
+                                    <option value="${itemCDTT.id}">${itemCDTT.chieuDai}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="idMucCangToiDa">Mức Căng Tối Đa</label>
+                            <select name="idMucCangToiDa" id="idMucCangToiDa" class="form-control">
+                                <c:forEach items="${mucCangToiDaList}" var="itemMCTD">
+                                    <option value="${itemMCTD.id}">${itemMCTD.khoiLuong}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="idChuViCanVot">Chu Vi Cán Vợt</label>
+                            <select name="idChuViCanVot" id="idChuViCanVot" class="form-control">
+                                <c:forEach items="${chuViCanVotList}" var="itemCVCV">
+                                    <option value="${itemCVCV.id}">${itemCVCV.chuVi}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="idMauSac">Màu Sắc</label>
+                            <select name="idMauSac" id="idMauSac" class="form-control">
+                                <c:forEach items="${mauSacList}" var="itemMS">
+                                    <option value="${itemMS.id}">${itemMS.ten}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="gia">Giá Sản Phẩm</label>
+                            <input type="text" id="gia" name="gia" class="form-control" placeholder="Nhập giá sản phẩm">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="soLuongTon">Số Lượng Tồn</label>
+                            <input type="text" id="soLuongTon" name="soLuongTon" class="form-control" placeholder="Nhập số lượng tồn">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="ngayTao">Ngày Tạo</label>
+                            <input type="date" id="ngayTao" name="ngayTao" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ngaySua">Ngày Sửa</label>
+                            <input type="date" id="ngaySua" name="ngaySua" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Trạng Thái</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="trangThai" value="0" checked>
+                                <label class="form-check-label">Còn Hàng</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="trangThai" value="1">
+                                <label class="form-check-label">Hết Hàng</label>
+                            </div>
+                        </div>
+                    </div>
 
-<%--                    <div class="row mb-3">--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="tongTien">Tổng tiền</label>--%>
-<%--                            <input type="number" id="tongTien" name="tongTien" class="form-control" >--%>
-<%--                        </div>--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label>Voucher</label>--%>
-<%--                            <select name="idVoucher" class="form-control">--%>
-<%--                                <c:forEach items="${ListVoucher}" var="itemVoucher">--%>
-<%--                                    <option value="${itemVoucher.id}" >${itemVoucher.ten}</option>--%>
-<%--                                </c:forEach>--%>
-<%--                            </select>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="tongTienSauGiam">Tổng Tiền Sau Giảm</label>--%>
-<%--                            <input type="text" id="tongTienSauGiam" name="tongTienSauGiam" class="form-control" >--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                    <div class="row mb-3">--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="ngayShip">Ngày Ship</label>--%>
-<%--                            <input type="date" id="ngayShip" name="ngayShip" class="form-control">--%>
-<%--                        </div>--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="ngayThanhToan">Ngày Thanh Toán</label>--%>
-<%--                            <input type="date" id="ngayThanhToan" name="ngayThanhToan" class="form-control">--%>
-<%--                        </div>--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="hinhThucThanhToan">Hình Thức Thanh Toán</label>--%>
-<%--                            <select id="hinhThucThanhToan" name="hinhThucThanhToan" class="form-control">--%>
-<%--                                <option>Tiền mặt</option>--%>
-<%--                                <option>Chuyển khoản</option>--%>
-<%--                            </select>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-md-4">--%>
-<%--                            <label for="phuongThucThanhToan">Phương Thức Thanh Toán</label>--%>
-<%--                            <select id="phuongThucThanhToan" name="phuongThucThanhToan" class="form-control">--%>
-<%--                                <option>ZaloPay</option>--%>
-<%--                                <option>Momo</option>--%>
-<%--                            </select>--%>
-<%--                        </div>--%>
-<%--                        <div class="col-md-6">--%>
-<%--                            <label>Trạng Thái</label>--%>
-<%--                            <div class="form-check">--%>
-<%--                                <input class="form-check-input" type="radio" name="trangThai" value="0" checked>--%>
-<%--                                <label class="form-check-label">Thanh Toán</label>--%>
-<%--                            </div>--%>
-<%--                            <div class="form-check">--%>
-<%--                                <input class="form-check-input" type="radio" name="trangThai" value="1">--%>
-<%--                                <label class="form-check-label">Chờ Thanh Toán</label>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-
-<%--                    <button type="submit" class="btn btn-primary">Lưu hóa đơn</button>--%>
-<%--                    <button type="reset" class="btn btn-secondary">Làm mới</button>--%>
-<%--                </form>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--    <div class="col-md-10">--%>
-<%--        <div class="content">--%>
-<%--            <h4>Hóa đơn</h4>--%>
-<%--            <div class="row mb-4">--%>
-<%--                <div class="col-md-3">--%>
-<%--                    <label>Ngày hóa đơn:</label>--%>
-<%--                    <input type="date" class="form-control">--%>
-<%--                </div>--%>
-<%--                <div class="col-md-3">--%>
-<%--                    <label>Số hóa đơn:</label>--%>
-<%--                    <input type="text" class="form-control">--%>
-<%--                </div>--%>
-<%--                <div class="col-md-3">--%>
-<%--                    <label>Trạng thái thanh toán:</label>--%>
-<%--                    <select class="form-control">--%>
-<%--                        <option>Chọn trạng thái thanh toán</option>--%>
-<%--                    </select>--%>
-<%--                </div>--%>
-<%--                <div class="col-md-3">--%>
-<%--                    <label>&nbsp;</label>--%>
-<%--                    <button class="btn btn-primary w-100">Tìm kiếm</button>--%>
-<%--                </div>--%>
-<%--            </div>div--%>
-
+                    <button type="submit" class="btn btn-primary">Lưu sản phẩm</button>
+                    <button type="reset" class="btn btn-secondary">Làm mới</button>
+                </form>
+            </div>
+        </div>
+    </div>
             <!-- Table -->
             <table class="table table-bordered">
                 <thead>
@@ -200,15 +197,15 @@
                         <td>${spct.soLuongTon}</td>
                         <td>${spct.ngaySua}</td>
                         <td>${spct.ngayTao}</td>
-                        <td>${spct.trangThai == 1 ? "Còn Hàng" : "Hết Hàng"}</td>
+                        <td>${spct.trangThai == 1 ? "Hết Hàng" : "Còn Hàng"}</td>
                         <td>
                             <a>
                                 <button>Chi Tiết</button>
                             </a>
-                            <a href="/hoa-don/viewUpdate/${hd.id}">
+                            <a href="/hnh-shop/ct-sanpham/view-edit/${spct.id}">
                                 <button>Sửa</button>
                             </a>
-                            <a href="/hoaDon/delete/${hd.id}">
+                            <a href="/hnh-shop/ct-sanpham/delete/${spct.id}">
                                 <button>Xoá</button>
                             </a>
                         </td>
