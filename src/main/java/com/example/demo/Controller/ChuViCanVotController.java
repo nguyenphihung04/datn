@@ -14,47 +14,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/chuViCanVot")
+//@RequestMapping("/chuViCanVot")
 public class ChuViCanVotController {
 
     @Autowired
     private ChuViCanVotRepo chuViCanVotRepository;
 
-    @GetMapping
+    @GetMapping("chuViCanVot/hienThi")
     public String getAllChuViCanVot(Model model) {
         List<ChuViCanVot> chuViCanVotList = chuViCanVotRepository.findAll();
         model.addAttribute("chuViCanVotList", chuViCanVotList);
         return "ChuViCanVot/index"; // tên file JSP
     }
 
-    @GetMapping("/add")
+    @GetMapping("chuViCanVot/add")
     public String createChuViCanVotForm(Model model) {
         model.addAttribute("chuViCanVot", new ChuViCanVot());
         return "ChuViCanVot/add"; // tên file JSP cho tạo mới
     }
 
-    @PostMapping("/add")
+    @PostMapping("chuViCanVot/add")
     public String createChuViCanVot(@ModelAttribute ChuViCanVot chuViCanVot) {
         chuViCanVotRepository.save(chuViCanVot);
         return "redirect:/chuViCanVot";
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("chuViCanVot/update/{id}")
     public String updateChuViCanVotForm(@PathVariable int id, Model model) {
         ChuViCanVot chuViCanVot = chuViCanVotRepository.findById(id).orElse(null);
         model.addAttribute("chuViCanVot", chuViCanVot);
         return "ChuViCanVot/update"; // tên file JSP cho chỉnh sửa
     }
 
-    @PostMapping("/update")
+    @PostMapping("chuViCanVot/update")
     public String updateChuViCanVot(@ModelAttribute ChuViCanVot chuViCanVot) {
         chuViCanVotRepository.save(chuViCanVot);
         return "redirect:/chuViCanVot";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("chuViCanVot/delete/{id}")
     public String deleteChuViCanVot(@PathVariable int id) {
         chuViCanVotRepository.deleteById(id);
         return "redirect:/chuViCanVot";
     }
+
 }

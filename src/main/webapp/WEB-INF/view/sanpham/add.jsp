@@ -1,4 +1,5 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <html>
@@ -7,27 +8,33 @@
 </head>
 <body>
 <h1>Thêm sản phẩm</h1>
-<form:form action="${pageContext.request.contextPath}/hnh-shop/san-pham/create" method="post" modelAttribute="data">
-    <label>Mã sản phẩm:</label>
-    <form:input path="ma" required="true"/>
+<!-- Thêm enctype="multipart/form-data" để hỗ trợ tải lên tệp -->
+<form action="${pageContext.request.contextPath}/san-pham/create" method="post" enctype="multipart/form-data">
+    <label for="ma">Mã sản phẩm:</label>
+    <input type="text" name="ma" id="ma" required />
     <br/>
-    <label>Tên sản phẩm:</label>
-    <form:input path="ten" required="true"/>
+
+    <label for="ten">Tên sản phẩm:</label>
+    <input type="text" name="ten" id="ten" required />
     <br/>
-    <label>Thông tin:</label>
-    <form:input path="thongTin" required="true"/>
+
+    <label for="idLoai">Loại sản phẩm:</label>
+    <select name="idLoai" id="idLoai">
+        <c:forEach items="${ListLoai}" var="loai">
+            <option value="${loai.id}">${loai.ten}</option>
+        </c:forEach>
+    </select>
     <br/>
-    <label>Giá:</label>
-    <form:input path="gia" required="true" type="number" step="0.01"/>
+
+    <label for="file">Ảnh sản phẩm:</label>
+    <input type="file" name="file" id="file" required />
     <br/>
-    <label>Trạng thái:</label>
-    <form:input path="trangThai" required="true" type="number"/>
-    <br/>
-    <label>Số lượng đã bán:</label>
-    <form:input path="soLuongDB" required="true" type="number"/>
-    <br/>
+
     <input type="submit" value="Thêm sản phẩm"/>
-</form:form>
-<a href="${pageContext.request.contextPath}/hnh-shop/san-pham/hien-thi">Quay lại danh sách sản phẩm</a>
+</form>
+
+<br/>
+<a href="${pageContext.request.contextPath}/san-pham/hien-thi">Quay lại danh sách sản phẩm</a>
+
 </body>
 </html>

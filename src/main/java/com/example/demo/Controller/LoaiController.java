@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/hnh-shop")
+//@RequestMapping("/hnh-shop")
 public class LoaiController {
 
     @Autowired
@@ -36,7 +36,7 @@ public class LoaiController {
     public String create(@ModelAttribute("data") Loai loai) {
         System.out.println(loai);
         loaiRepo.save(loai);
-        return "redirect:/nguoi-dung/hien-thi";
+        return "redirect:/loai/hien-thi";
     }
 
     @GetMapping("loai/edit/{id}")

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/mucCangToiDa")
+//@RequestMapping("/mucCangToiDa")
 public class MucCangToiDaController {
 
     @Autowired

@@ -20,7 +20,7 @@ public class DiemCanBangController {
     @Autowired
     private DiemCanBangRepo diemCanBangRepository;
 
-    @GetMapping
+    @GetMapping("/hienThi")
     public String getAllDiemCanBang(Model model) {
         List<DiemCanBang> diemCanBangList = diemCanBangRepository.findAll();
         model.addAttribute("diemCanBangList", diemCanBangList);

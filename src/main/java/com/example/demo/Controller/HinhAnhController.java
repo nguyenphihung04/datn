@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/hnh-shop")
+//@RequestMapping("/hnh-shop")
 public class HinhAnhController {
     @Autowired
     private HinhAnhRepo spRepo;

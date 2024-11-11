@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/hnh-shop")
+//@RequestMapping("/hnh-shop")
 public class DiaChiController {
 
     @Autowired
